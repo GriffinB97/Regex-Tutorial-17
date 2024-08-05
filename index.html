@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Tutorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Understanding the URL Matching Regular Expression</h1>
+        <p>Regular expressions, or regex, are powerful tools for pattern matching within strings. They are commonly used in programming and web development for searching, validating, and manipulating text. This tutorial will break down a specific regex used to match URLs and explain each component's function.</p>
+        
+        <h2>Summary</h2>
+        <p>The regular expression we will examine is designed to match URLs. Here's the regex:</p>
+        <code>/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/</code>
+        <p>This regex checks for the presence of a URL scheme (http or https), followed by a domain name, a top-level domain, and optional paths or file extensions.</p>
+        
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#anchors">Anchors</a></li>
+            <li><a href="#scheme">Scheme</a></li>
+            <li><a href="#domain-name">Domain Name</a></li>
+            <li><a href="#top-level-domain">Top-Level Domain</a></li>
+            <li><a href="#path-or-file-extension">Path or File Extension</a></li>
+            <li><a href="#optional-trailing-slash">Optional Trailing Slash</a></li>
+            <li><a href="#about-the-author">About the Author</a></li>
+        </ul>
+        
+        <h3 id="anchors">Anchors</h3>
+        <p><code>^</code> and <code>$</code></p>
+        <p>Anchors are used to ensure that the entire string is matched from start to end.</p>
+        <ul>
+            <li><code>^</code> asserts the position at the start of the string.</li>
+            <li><code>$</code> asserts the position at the end of the string.</li>
+        </ul>
+        <pre><code>/^...$/</code></pre>
+        <p>These anchors ensure that the entire input string matches the pattern defined by the regex.</p>
+        
+        <h3 id="scheme">Scheme</h3>
+        <p><code>(https?:\/\/)?</code></p>
+        <p>This part of the regex matches the URL scheme (http or https) optionally.</p>
+        <ul>
+            <li><code>https?</code>: Matches "http" followed by an optional "s".</li>
+            <li><code>:\/\/</code>: Matches "://".</li>
+        </ul>
+        <pre><code>(https?:\/\/)?</code></pre>
+        <p>Examples:</p>
+        <ul>
+            <li>http://</li>
+            <li>https://</li>
+        </ul>
+        
+        <h3 id="domain-name">Domain Name</h3>
+        <p><code>([\da-z\.-]+)</code></p>
+        <p>This part matches the domain name, allowing for subdomains.</p>
+        <ul>
+            <li><code>[\da-z\.-]</code>: Matches any digit (<code>\d</code>), any lowercase letter (<code>a-z</code>), a dot (<code>\.</code>), or a hyphen (<code>-</code>).</li>
+            <li><code>+</code>: Ensures one or more of the preceding characters.</li>
+        </ul>
+        <pre><code>([\da-z\.-]+)</code></pre>
+        <p>Examples:</p>
+        <ul>
+            <li>www.example</li>
+            <li>sub.domain-name</li>
+        </ul>
+        
+        <h3 id="top-level-domain">Top-Level Domain</h3>
+        <p><code>([a-z\.]{2,6})</code></p>
+        <p>This part matches the top-level domain (TLD), such as ".com" or ".co.uk".</p>
+        <ul>
+            <li><code>[a-z\.]</code>: Matches any lowercase letter (<code>a-z</code>) or a dot (<code>\.</code>).</li>
+            <li><code>{2,6}</code>: Ensures between 2 and 6 of the preceding characters.</li>
+        </ul>
+        <pre><code>([a-z\.]{2,6})</code></pre>
+        <p>Examples:</p>
+        <ul>
+            <li>com</li>
+            <li>co.uk</li>
+        </ul>
+        
+        <h3 id="path-or-file-extension">Path or File Extension</h3>
+        <p><code>([\/\w \.-]*)</code></p>
+        <p>This part matches the path or file extension in the URL.</p>
+        <ul>
+            <li><code>[\/\w \.-]</code>: Matches a forward slash (<code>\/</code>), any word character (<code>\w</code>), a space, a dot (<code>\.</code>), or a hyphen (<code>-</code>).</li>
+            <li><code>*</code>: Ensures zero or more of the preceding characters.</li>
+        </ul>
+        <pre><code>([\/\w \.-]*)*</code></pre>
+        <p>Examples:</p>
+        <ul>
+            <li>/path/to/page</li>
+            <li>/file-name.ext</li>
+        </ul>
+        
+        <h3 id="optional-trailing-slash">Optional Trailing Slash</h3>
+        <p><code>\/?</code></p>
+        <p>This part matches an optional trailing slash.</p>
+        <ul>
+            <li><code>\/</code>: Matches a forward slash.</li>
+            <li><code>?</code>: Ensures the forward slash is optional.</li>
+        </ul>
+        <pre><code>\/?</code></pre>
+        <p>Examples:</p>
+        <ul>
+            <li>/</li>
+            <li>(nothing)</li>
+        </ul>
+        
+        <h3 id="about-the-author">About the Author</h3>
+        <p>Hello! I am a web development student passionate about learning and sharing knowledge about regular expressions and other web development concepts. You can check out my projects and connect with me on <a href="https://github.com/GriffinB97">GitHub</a>.</p>
+    </div>
+</body>
+</html>
